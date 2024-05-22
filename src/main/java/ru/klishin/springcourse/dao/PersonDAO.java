@@ -11,15 +11,14 @@ public class PersonDAO {
 
     private static int PEOPLE_COUNT;
     private List<Person> people;
+
     {
         people = new ArrayList<>();
 
         people.add(new Person(++PEOPLE_COUNT, "Tom"));
-        people.add(new Person(++PEOPLE_COUNT, "Jim"));
-        people.add(new Person(++PEOPLE_COUNT, "Kris"));
         people.add(new Person(++PEOPLE_COUNT, "Bob"));
-        people.add(new Person(++PEOPLE_COUNT, "Klark"));
-
+        people.add(new Person(++PEOPLE_COUNT, "Mike"));
+        people.add(new Person(++PEOPLE_COUNT, "Katy"));
     }
 
     public List<Person> index() {
