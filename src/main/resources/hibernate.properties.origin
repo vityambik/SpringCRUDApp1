@@ -1,0 +1,10 @@
+# Конфигурация источника данных (Data Source)
+hibernate.driver_class=
+hibernate.connection.url=
+hibernate.connection.username=
+hibernate.connection.password=
+
+# Конфигурация самого Hibernate
+hibernate.dialect=org.hibernate.dialect.PostgreSQL10Dialect
+hibernate.show_sql=true
+hibernate.current_session_context_class=thread
