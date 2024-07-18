@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.klishin.springcourse.models.Person;
 import ru.klishin.springcourse.repositories.PeopleRepository;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,6 +32,7 @@ public class PeopleService {
 
     @Transactional
     public void save(Person person) {
+        person.setCreatedAt(new Date());
         peopleRepository.save(person);
     }
 
@@ -43,5 +45,29 @@ public class PeopleService {
     @Transactional
     public void delete(int id) {
         peopleRepository.deleteById(id);
+    }
+
+//    public List<Person> findByName(String name) {
+//        return peopleRepository.findByName(name);
+//    }
+//
+//    public List<Person> findByNameOrderByAge(String name) {
+//        return peopleRepository.findByNameOrderByAge(name);
+//    }
+//
+//    public List<Person> findByEmail(String email) {
+//        return peopleRepository.findByEmail(email);
+//    }
+//
+//    public List<Person> findByNameStartingWith(String startingWith) {
+//        return peopleRepository.findByNameStartingWith(startingWith);
+//    }
+//
+//    public List<Person> findByNameOrEmail(String name, String email) {
+//        return peopleRepository.findByNameOrEmail(name, email);
+//    }
+
+    public void test() {
+        System.out.println("Testing here with debug. Inside Hibernate Transaction");
     }
 }

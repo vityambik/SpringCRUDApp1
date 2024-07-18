@@ -3,9 +3,12 @@ package ru.klishin.springcourse.models;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
+import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -37,6 +40,18 @@ public class Person {
     @Pattern(regexp = "[A-Z]\\w+, [A-Z]\\w+, \\d{6}", message = "Your address should be in this format: Country, City, Postal Code(6 digits)")
     @Column(name = "address")
     private String address;
+
+    @Column(name = "date_of_birth")
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    private Date dateOfBirth;
+
+    @Column(name = "created_at")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createdAt;
+
+    @OneToMany(mappedBy = "owner")
+    private List<Item> items;
 
     public Person(int id, String name, int age, String email, String address) {
         this.id = id;
